@@ -3,7 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Main {
+class Main {
 
     public static void main(String[] args)  throws IOException{
         String path = "C:\\Users\\pc\\Desktop\\lab0.txt";
@@ -21,19 +21,13 @@ public class Main {
         line = reader.readLine();
         int j = 1;
         while(line!=null){
-
-            String pal = palindrom(line)? "+":"-";
-            int num_of_symb = numOfSymbols(line);
-            int num_of_bytes = getBytes(line);
-            double hartley = bitHartley(line);
-
-            vivod(j, line, pal, num_of_symb, num_of_bytes, hartley);
-
+            vivod(j, line, palindrom(line)? "+":"-", numOfSymbols(line), getBytes(line), bitHartley(line), bitShennon(line));
             line = reader.readLine();
 
             j++;
         }
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+
     }
 
     public static boolean palindrom(String line)
@@ -80,31 +74,31 @@ public class Main {
 
     public static double bitShennon(String line)
     {
-        ArrayList<String> list = unique(line);
-        for (String str : list) {
-
+        ArrayList<Character> list = unique(line);
+        double ans = 0;
+        int tmp = 0;
+        for (char ch : list) {
+            tmp = 0;
+            for (int i = 0; i < line.length(); i++) {
+                if(line.charAt(i) == ch) tmp++;
+            }
+            ans -= (double)tmp/line.length()*Math.log((double)tmp/line.length())/Math.log(2.0);
         }
-        return 0;
+        return ans;
     }
 
     public static void vivod(){
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
         System.out.println(" № | слово                                                  |           |            Количество информации ");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("    |                                                        |           | кол-во   | байт, размер |     бит,   |    бит,");
         System.out.println("    |                                                        | палиндром | символов | в программе  |  по Хартли | по Шеннону ");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
     }
-    public static void vivod(int i, String line, String palindrom, int numOfSymb, int numOfBytes, double bitHartley/*, double bitShennon*/)
+
+    public static void vivod(int i, String line, String palindrom, int numOfSymb, int numOfBytes, double bitHartley, double bitShennon)
     {
-        System.out.printf("%-4.4s", i);
-        System.out.printf("%-57.57s", "| "+line);
-        System.out.printf("%-12.12s", "| " + palindrom);
-        System.out.printf("%-11.11s", "| " + numOfSymb);
-        System.out.printf("|");
-        System.out.printf("%15.5s", numOfBytes + " |");
-        System.out.printf("%11.2f", bitHartley);
-        System.out.printf(" |");
+        System.out.printf("%-4.4s| %-55.55s| %-10.10s| %-9.9s| %12.5s | %10.2f | %11.9f |", i, line, palindrom, numOfSymb, numOfBytes, bitHartley, bitShennon);
         System.out.println();
     }
 }

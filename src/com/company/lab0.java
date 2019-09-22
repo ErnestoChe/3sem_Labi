@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 class Main {
 
+    final static String space10 = new String(new char[128]).replace('\0', '-');
+
     public static void main(String[] args)  throws IOException{
         String path = "C:\\Users\\pc\\Desktop\\lab0.txt";
 
@@ -26,8 +28,7 @@ class Main {
 
             j++;
         }
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
-
+        System.out.println(space10);
     }
 
     public static boolean palindrom(String line)
@@ -76,7 +77,7 @@ class Main {
     {
         ArrayList<Character> list = unique(line);
         double ans = 0;
-        int tmp = 0;
+        int tmp;
         for (char ch : list) {
             tmp = 0;
             for (int i = 0; i < line.length(); i++) {
@@ -88,17 +89,18 @@ class Main {
     }
 
     public static void vivod(){
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(space10);
         System.out.println(" № | слово                                                  |           |            Количество информации ");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(space10);
         System.out.println("    |                                                        |           | кол-во   | байт, размер |     бит,   |    бит,");
         System.out.println("    |                                                        | палиндром | символов | в программе  |  по Хартли | по Шеннону ");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+
+        System.out.println(space10);
     }
 
     public static void vivod(int i, String line, String palindrom, int numOfSymb, int numOfBytes, double bitHartley, double bitShennon)
     {
-        System.out.printf("%-4.4s| %-55.55s| %-10.10s| %-9.9s| %12.5s | %10.2f | %11.9f |", i, line, palindrom, numOfSymb, numOfBytes, bitHartley, bitShennon);
+        System.out.printf("%-4.4s|%-56.56s|%-11.11s|%-10.10s|%14.5s|%12.2f|%12.9f|", i, line, palindrom, numOfSymb, numOfBytes, bitHartley, bitShennon);
         System.out.println();
     }
 }

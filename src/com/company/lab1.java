@@ -1,6 +1,10 @@
 package com.company;
 
 import java.util.Random;
+import java.util.Vector;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class lab1 {
     public static void main(String[] args) {
@@ -16,21 +20,37 @@ public class lab1 {
         equations[2] = (double x)->(0.5 * Math.tan(2*(x * Math.PI/4)/3)-1);
 
 
-        TrigFunctional fun = (double x)->(1/Math.log(x));
-        //первое задание и третье
+        /*
+        Первое и второе задание
+         */
         //function(-2*Math.PI, 2*Math.PI, Math.PI/6, func);
         //второе задание и третье
         //func2b(func, 10000);
-        //четвертое
-        /*getRoot(0, Math.PI, equations[0]);
+        /*
+        Четвертое задание
+         */
+        System.out.println("Четвертое задание");
+        getRoot(0, Math.PI, equations[0]);
         getRoot(0, 0.9, equations[1]);
         getRoot(2.1, 5.0, equations[1]);
-        getRoot(Math.PI, 2 * Math.PI, equations[2]);*/
-        //пятое задание
-        /*System.out.println(integral(-Math.PI, Math.PI, 20, func[0]));
+        getRoot(Math.PI, 2 * Math.PI, equations[2]);
+        /*
+        Пятое задание
+         */
+        System.out.println("Пятое задание");
+        System.out.println(integral(-Math.PI, Math.PI, 20, func[0]));
         System.out.println(integral(-Math.PI, Math.PI, 20, func[2]));
-        System.out.println(integral(-Math.PI, Math.PI, 20, func[3]));*/
-        //шестое задание
+        System.out.println(integral(-Math.PI, Math.PI, 20, func[3]));
+        /*
+        Шестое задание
+         */
+        System.out.println("Шестое задание");
+        String[] arr = {"топор", "wopor", "wok", "wow", "gogog"};
+        Vector<String> vtr = new Vector<>();
+        for (int i = 0; i < arr.length; i++) {
+            vtr.add(arr[i]);
+        }
+        stroki(vtr);
 
     }
 
@@ -72,7 +92,7 @@ public class lab1 {
             System.out.println();
         }
     }
-
+    //Четвертое задание
     public static double getRoot(double left, double right, TrigFunctional func)
     {
         double root;
@@ -93,7 +113,7 @@ public class lab1 {
         System.out.println(mid);
         return mid;
     }
-
+    //Пятое задание
     public static double integral(double left, double right, double dx, TrigFunctional func)
     {
         double res = 0;
@@ -104,8 +124,35 @@ public class lab1 {
         }
         return res;
     }
-
-
+    //Шестое задание
+    public static void stroki(Vector<String> vctr){
+        //6а
+        Function<String, Integer> function = s -> (s.length() == 5 ? 1:0);
+        int char5 = 0;
+        //6b
+        int sum_palindrom = 0;
+        Predicate<String> predicate = s -> {
+            int n = s.length();
+            for (int i = 0; i < (n/2); ++i) {
+                if (s.charAt(i) != s.charAt(n - i - 1)) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        //6c
+        Consumer<String> consumer = s -> {
+            if(s.charAt(0) == 'w' || s.charAt(0) == 'W') System.out.println(s);
+        };
+        //вывод
+        for(String str:vctr){
+            char5+=function.apply(str);
+            if(predicate.test(str)) sum_palindrom++;
+            consumer.accept(str);
+        }
+        System.out.println("Пятибуквенных слов = " + char5 );
+        System.out.println("Палиндромов всего = " + sum_palindrom);
+    }
 }
 
 interface TrigFunctional{

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 class Main {
 
-    final static String space10 = new String(new char[128]).replace('\0', '-');
+    final public static String space10 = new String(new char[128]).replace('\0', '-');
 
     public static void main(String[] args)  throws IOException{
         String path = "C:\\Users\\pc\\Desktop\\lab0.txt";
@@ -60,12 +60,11 @@ class Main {
         return numOfSymbols(line) * Math.log(uniqueChar)/Math.log(2.0);
     }
 
-    public static ArrayList unique(String line)
+    public static ArrayList<Character> unique(String line)
     {
-        ArrayList list = new ArrayList();
+        ArrayList<Character> list = new ArrayList<Character>();
         for ( int i =0; i<line.length();i++) {
             char character = line.charAt(i);
-
             if(!list.contains(character)) {
                 list.add(character);
             }

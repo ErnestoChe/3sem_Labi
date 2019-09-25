@@ -15,6 +15,8 @@ public class lab1 {
         equations[1] = (double x)->(Math.log(x*x - 3 * x +2));
         equations[2] = (double x)->(0.5 * Math.tan(2*(x * Math.PI/4)/3)-1);
 
+
+        TrigFunctional fun = (double x)->(1/Math.log(x));
         //первое задание и третье
         //function(-2*Math.PI, 2*Math.PI, Math.PI/6, func);
         //второе задание и третье
@@ -25,11 +27,16 @@ public class lab1 {
         getRoot(2.1, 5.0, equations[1]);
         getRoot(Math.PI, 2 * Math.PI, equations[2]);*/
         //пятое задание
+        /*System.out.println(integral(-Math.PI, Math.PI, 20, func[0]));
+        System.out.println(integral(-Math.PI, Math.PI, 20, func[2]));
+        System.out.println(integral(-Math.PI, Math.PI, 20, func[3]));*/
+        //шестое задание
 
     }
 
     //первое и второе задание
-    public static void function(double left, double right, double step, TrigFunctional[] func){
+    public static void function(double left, double right, double step, TrigFunctional[] func)
+    {
         int gl_negative = 0;
         for (int i = 0; i < func.length; i++) {
             int negative = 0;
@@ -48,7 +55,8 @@ public class lab1 {
         System.out.println();
     }
 
-    public static void func2b(TrigFunctional[] func, int n){
+    public static void func2b(TrigFunctional[] func, int n)
+    {
         Random rnd = new Random();
         double min, max;
         double[] arr = new double[n];
@@ -65,7 +73,8 @@ public class lab1 {
         }
     }
 
-    public static double getRoot(double left, double right, TrigFunctional func) {
+    public static double getRoot(double left, double right, TrigFunctional func)
+    {
         double root;
         double epsilon = 0.0001;
         double mid = 0;
@@ -83,6 +92,17 @@ public class lab1 {
         }
         System.out.println(mid);
         return mid;
+    }
+
+    public static double integral(double left, double right, double dx, TrigFunctional func)
+    {
+        double res = 0;
+        double step = (right - left)/dx;
+
+        for (double i = left; i < right; i+=step) {
+            res+=func.calc(i) * step;
+        }
+        return res;
     }
 
 

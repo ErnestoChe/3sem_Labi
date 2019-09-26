@@ -3,7 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 
-class Main {
+class lab0 {
 
     final public static String space10 = new String(new char[128]).replace('\0', '-');
 
@@ -23,9 +23,16 @@ class Main {
         line = reader.readLine();
         int j = 1;
         while(line!=null){
-            vivod(j, line, palindrom(line)? "+":"-", numOfSymbols(line), getBytes(line), bitHartley(line), bitShennon(line));
+            vivod(
+                    j,
+                    line,
+                    palindrom(line)? "+":"-",
+                    numOfSymbols(line),
+                    getBytes(line),
+                    bitHartley(line),
+                    bitShennon(line)
+            );
             line = reader.readLine();
-
             j++;
         }
         System.out.println(space10);
@@ -97,9 +104,26 @@ class Main {
         System.out.println(space10);
     }
 
-    public static void vivod(int i, String line, String palindrom, int numOfSymb, int numOfBytes, double bitHartley, double bitShennon)
+    public static void vivod(
+            int i,
+            String line,
+            String palindrom,
+            int numOfSymb,
+            int numOfBytes,
+            double bitHartley,
+            double bitShennon
+    )
     {
-        System.out.printf("%-4.4s|%-56.56s|%-11.11s|%-10.10s|%14.5s|%12.2f|%12.9f|", i, line, palindrom, numOfSymb, numOfBytes, bitHartley, bitShennon);
+        System.out.printf(
+                "%-4.4s|%-56.56s|%-11.11s|%-10.10s|%14.5s|%12.2f|%12.9f|",
+                i,
+                line,
+                palindrom,
+                numOfSymb,
+                numOfBytes,
+                bitHartley,
+                bitShennon
+        );
         System.out.println();
     }
 }

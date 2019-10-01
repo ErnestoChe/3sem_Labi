@@ -2,7 +2,6 @@ package com.company.Laba2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.time.Year;
 import java.util.*;
 
 public class lab2 {
@@ -12,7 +11,8 @@ public class lab2 {
         //zadanie2();
         //zadanie3();
         //
-        zadanie5();
+        //zadanie5();
+        zadanie6();
     }
 
     public static void zadanie1()
@@ -101,13 +101,20 @@ public class lab2 {
         }
         System.out.println();
         //По количеству заглавных латинских букв в строке
-        Collections.sort(lines, new compareByUpperCase().reversed());
+        Collections.sort(lines, new СompareByUpperCase().reversed());
         for (String s:lines) {
             System.out.println(s);
         }
     }
 
+    public static void zadanie6()
+    {
+        Dot2D d1 = new Dot2D(1,1);
+        Dot2D d2 = new Dot2D(1,2);
 
+        System.out.println(d1.toString());
+        System.out.println(d1.distToDot(d2));
+    }
 
     //Первое задание
     public static void pervoe(String line)
@@ -173,60 +180,3 @@ public class lab2 {
 
 }
 
-class Human{
-
-    private String name;
-    private String surname;
-    private String date_of_birth;
-    // 1 - мужской, 0 - женский
-    private boolean sex;
-
-    public Human(){}
-
-    public int getAge()
-    {
-        int year = Integer.parseInt(date_of_birth.split("\\.")[2]);
-        return Year.now().getValue()- year;
-    }
-
-    @Override
-    public String toString() {
-        return name + " " + surname + " " +
-                date_of_birth + " " + (isSex() ? "муж":"жен");
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setDate_of_birth(String date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
-
-    public boolean isSex() {
-        return sex;
-    }
-
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
-}
-
-class compareByUpperCase implements Comparator<String>{
-    public int compare(String s1, String s2){
-        int count1 = 0, count2 = 0;
-        for (int i = 0; i < s1.length(); i++) {
-            if(s1.charAt(i) <= 'Z' && s1.charAt(i) >= 'A') count1++;
-        }
-
-        for (int i = 0; i < s2.length(); i++) {
-            if(s2.charAt(i) <= 'Z' && s2.charAt(i) >= 'A') count2++;
-        }
-
-        return Integer.compare(count1, count2);
-    }
-}

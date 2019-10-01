@@ -2,7 +2,7 @@ package com.company.Laba2;
 
 import java.util.Comparator;
 
-class ÑompareByUpperCase implements Comparator<String> {
+class CompareByUpperCase implements Comparator<String> {
     public int compare(String s1, String s2){
         int count1 = 0, count2 = 0;
         for (int i = 0; i < s1.length(); i++) {

@@ -101,7 +101,7 @@ public class lab2 {
         }
         System.out.println();
         //По количеству заглавных латинских букв в строке
-        Collections.sort(lines, new СompareByUpperCase().reversed());
+        Collections.sort(lines, new CompareByUpperCase().reversed());
         for (String s:lines) {
             System.out.println(s);
         }
@@ -109,11 +109,19 @@ public class lab2 {
 
     public static void zadanie6()
     {
-        Dot2D d1 = new Dot2D(1,1);
-        Dot2D d2 = new Dot2D(1,2);
+        Dot2D[] dots = new Dot2D[10];
+        dots[0] = new Dot2D(1,1);
+        dots[1] = new Dot2D(2,1);
+        dots[2] = new Dot2D(2,4);
+        dots[3] = new Dot2D(5,4);
+        dots[4] = new Dot2D(5,2);
+        AngledLine line = new AngledLine(dots[0]);
+        for (int i = 1; i < 5; i++) {
+            line.addDot(dots[i]);
+        }
 
-        System.out.println(d1.toString());
-        System.out.println(d1.distToDot(d2));
+        System.out.println(line.length());
+        System.out.println(line.getCountOfDots());
     }
 
     //Первое задание

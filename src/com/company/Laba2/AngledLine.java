@@ -12,6 +12,14 @@ public class AngledLine {
         countOfDots = 1;
     }
 
+    AngledLine(Dot2D[] dots){
+        list = new ArrayList<>();
+        for (int i = 0; i < dots.length; i++) {
+            list.add(dots[i]);
+        }
+        countOfDots = dots.length;
+    }
+
     public void addDot(Dot2D dot)
     {
         list.add(dot);
@@ -24,5 +32,9 @@ public class AngledLine {
             res+= list.get(i).distToDot(list.get(i+1));
         }
         return res;
+    }
+
+    public int getCountOfDots(){
+        return countOfDots;
     }
 }

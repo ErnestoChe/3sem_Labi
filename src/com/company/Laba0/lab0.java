@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Laba0;
 
 import java.io.*;
 import java.util.ArrayList;

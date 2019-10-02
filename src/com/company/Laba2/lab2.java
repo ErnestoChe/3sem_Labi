@@ -10,9 +10,9 @@ public class lab2 {
         //zadanie1();
         //zadanie2();
         //zadanie3();
-        //
-        //zadanie5();
-        zadanie6();
+        //zadanie4();
+        zadanie5();
+        //zadanie6();
     }
 
     public static void zadanie1()
@@ -75,9 +75,15 @@ public class lab2 {
 
     public static void zadanie4()
     {
-        Scanner scanner = new Scanner(System.in);
-        String line = scanner.nextLine();
+        int a =  M(m(3,5),M(1,2));
+        System.out.println(a);
+    }
 
+    public static int M(int i1, int i2){
+        return Math.max(i1, i2);
+    }
+    public static int m(int i1, int i2){
+        return Math.min(i1, i2);
     }
 
     public static void zadanie5() throws FileNotFoundException

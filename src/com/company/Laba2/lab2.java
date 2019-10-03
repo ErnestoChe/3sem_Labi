@@ -10,8 +10,8 @@ public class lab2 {
         //zadanie1();
         //zadanie2();
         //zadanie3();
-        //zadanie4();
-        zadanie5();
+        zadanie4();
+        //zadanie5();
         //zadanie6();
     }
 
@@ -73,10 +73,23 @@ public class lab2 {
         }
     }
 
-    public static void zadanie4()
-    {
-        int a =  M(m(3,5),M(1,2));
-        System.out.println(a);
+    public static void zadanie4() {
+        Scanner scanner = new Scanner(System.in);
+        String f = scanner.nextLine();
+        Stack<Character> someStack = new Stack<>();
+        for (int i = 0; i < f.length(); i++) {
+            if (f.charAt(i) == ')') {
+                int a = someStack.pop();
+                int b = someStack.pop();
+                someStack.pop();
+                if (someStack.pop() == 'M')
+                    if (b > a) someStack.push((char) b);
+                    else someStack.push((char) a);
+                else if (b < a) someStack.push((char) b);
+                else someStack.push((char) a);
+            } else if (f.charAt(i) != ',') someStack.push(f.charAt(i));
+        }
+        System.out.println(someStack.pop());
     }
 
     public static int M(int i1, int i2){
@@ -126,7 +139,7 @@ public class lab2 {
             line.addDot(dots[i]);
         }
 
-        System.out.println(line.length());
+        System.out.println(line.getLength());
         System.out.println(line.getCountOfDots());
     }
 

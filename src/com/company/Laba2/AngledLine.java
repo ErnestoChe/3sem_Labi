@@ -26,10 +26,10 @@ public class AngledLine {
         countOfDots++;
     }
 
-    public double length(){
+    public double getLength(){
         double res = 0;
         for (int i = 0; i < countOfDots-1; i++) {
-            res+= list.get(i).distToDot(list.get(i+1));
+            res+= list.get(i).getDistance(list.get(i+1));
         }
         return res;
     }

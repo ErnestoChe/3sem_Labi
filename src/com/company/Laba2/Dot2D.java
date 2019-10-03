@@ -32,7 +32,7 @@ public class Dot2D {
                 ')';
     }
 
-    public double distToDot(Dot2D d){
+    public double getDistance(Dot2D d){
         return Math.sqrt(Math.pow(this.x - d.getX(), 2) + Math.pow(this.y - d.getY(),2));
     }
 }

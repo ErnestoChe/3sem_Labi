@@ -74,8 +74,15 @@ public class lab2 {
     }
 
     public static void zadanie4() {
+
+        String test = " M(m(3,5),M(1,2))";
+        String test1 = "m(1,2)";
+        String test2 = "M(M(M(M(9,1),2),3),4)";
+        String test3 = "M(1,M(2,m(3,M(4,M(5,m(6,M(9,0)))))))";
         Scanner scanner = new Scanner(System.in);
-        String f = scanner.nextLine();
+        String f =
+                //scanner.nextLine();
+                test3;
         Stack<Character> someStack = new Stack<>();
         for (int i = 0; i < f.length(); i++) {
             if (f.charAt(i) == ')') {

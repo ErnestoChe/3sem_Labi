@@ -15,8 +15,7 @@ public class lab2 {
         //zadanie6();
     }
 
-    public static void zadanie1()
-    {
+    public static void zadanie1() {
         /*System.out.println(stroka(line));
         System.out.println();
         System.out.println("Enter number to stack and deque: ");
@@ -24,15 +23,14 @@ public class lab2 {
         pervoe(line);*/
     }
 
-    public static void zadanie2() throws FileNotFoundException
-    {
+    public static void zadanie2() throws FileNotFoundException {
         String path = "C:\\Users\\pc\\IdeaProjects\\3sem\\src\\com\\company\\Laba2\\humans.txt";
         Stack<Human> humans = new Stack<>();
         Stack<Human> tmp_h = new Stack<>();
         Human tmp;
         Scanner scn = new Scanner(new File(path));
 
-        while(scn.hasNext()){
+        while (scn.hasNext()) {
             tmp = new Human();
             tmp.setName(scn.next());
             tmp.setSurname(scn.next());
@@ -40,21 +38,19 @@ public class lab2 {
             tmp.setSex(scn.next().equals("мужской"));
             humans.push(tmp);
         }
-        while(!humans.isEmpty()){
+        while (!humans.isEmpty()) {
             tmp = humans.pop();
-            if(tmp.getAge() < 40){
+            if (tmp.getAge() < 40) {
                 System.out.println(tmp.toString());
-            }
-            else tmp_h.push(tmp);
+            } else tmp_h.push(tmp);
         }
         System.out.println("Старше сорока");
-        while(!tmp_h.isEmpty()){
+        while (!tmp_h.isEmpty()) {
             System.out.println(tmp_h.pop().toString());
         }
     }
 
-    public static void zadanie3()
-    {
+    public static void zadanie3() {
         /*Scanner scn = new Scanner(System.in);
         System.out.println("Enter line to check brackets:");
         String line = scn.nextLine();*/
@@ -99,48 +95,47 @@ public class lab2 {
         System.out.println(someStack.pop());
     }
 
-    public static int M(int i1, int i2){
+    public static int M(int i1, int i2) {
         return Math.max(i1, i2);
     }
-    public static int m(int i1, int i2){
+
+    public static int m(int i1, int i2) {
         return Math.min(i1, i2);
     }
 
-    public static void zadanie5() throws FileNotFoundException
-    {
+    public static void zadanie5() throws FileNotFoundException {
         String path = "C:\\Users\\pc\\IdeaProjects\\3sem\\src\\com\\company\\Laba2\\lines.txt";
         Scanner scanner = new Scanner(new File(path));
         ArrayList<String> lines = new ArrayList<>();
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             lines.add(scanner.nextLine());
         }
         //Лексикографический порядок(по алфавиту)
         Collections.sort(lines);
-        for (String s:lines) {
+        for (String s : lines) {
             System.out.println(s);
         }
         System.out.println();
         //По длине строки
         Collections.sort(lines, Comparator.comparingInt(String::length));
-        for (String s:lines) {
+        for (String s : lines) {
             System.out.println(s);
         }
         System.out.println();
         //По количеству заглавных латинских букв в строке
         Collections.sort(lines, new CompareByUpperCase().reversed());
-        for (String s:lines) {
+        for (String s : lines) {
             System.out.println(s);
         }
     }
 
-    public static void zadanie6()
-    {
+    public static void zadanie6() {
         Dot2D[] dots = new Dot2D[10];
-        dots[0] = new Dot2D(1,1);
-        dots[1] = new Dot2D(2,1);
-        dots[2] = new Dot2D(2,4);
-        dots[3] = new Dot2D(5,4);
-        dots[4] = new Dot2D(5,2);
+        dots[0] = new Dot2D(1, 1);
+        dots[1] = new Dot2D(2, 1);
+        dots[2] = new Dot2D(2, 4);
+        dots[3] = new Dot2D(5, 4);
+        dots[4] = new Dot2D(5, 2);
         AngledLine line = new AngledLine(dots[0]);
         for (int i = 1; i < 5; i++) {
             line.addDot(dots[i]);
@@ -151,8 +146,7 @@ public class lab2 {
     }
 
     //Первое задание
-    public static void pervoe(String line)
-    {
+    public static void pervoe(String line) {
         char[] arr = line.toCharArray();
         Stack<Character> stack = new Stack<>();
         ArrayDeque<Character> deque = new ArrayDeque<>();
@@ -161,49 +155,48 @@ public class lab2 {
             deque.addLast(arr[i]);
         }
         System.out.println("стек в обратном порядке");
-        while(!stack.empty()) System.out.println(stack.pop());
-        for (int i = arr.length-1; i >= 0 ; i--) {
+        while (!stack.empty()) System.out.println(stack.pop());
+        for (int i = arr.length - 1; i >= 0; i--) {
             stack.push(arr[i]);
         }
         System.out.println("стек в нормальном порядке");
-        while(!stack.empty()) System.out.println(stack.pop());
+        while (!stack.empty()) System.out.println(stack.pop());
         System.out.println("очередь в нормальном порядке");
-        while(!deque.isEmpty()) System.out.println(deque.pollFirst());
+        while (!deque.isEmpty()) System.out.println(deque.pollFirst());
         for (int i = 0; i < arr.length; i++) {
             deque.addFirst(arr[i]);
         }
         System.out.println("Очередь в обратном порядке");
-        while(!deque.isEmpty()) System.out.println(deque.poll());
+        while (!deque.isEmpty()) System.out.println(deque.poll());
     }
 
     //Третье задание
-    public static boolean stroka(String line)
-    {
+    public static boolean stroka(String line) {
         Stack<Character> stack = new Stack<Character>();
 
         char c;
-        for(int i=0; i < line.length(); i++) {
+        for (int i = 0; i < line.length(); i++) {
             c = line.charAt(i);
-            if(c == '(' || c == '{' || c == '[')
+            if (c == '(' || c == '{' || c == '[')
                 stack.push(c);
-            else if(c == ')')
-                if(stack.empty())
+            else if (c == ')')
+                if (stack.empty())
                     return false;
-                else if(stack.peek() == '(')
+                else if (stack.peek() == '(')
                     stack.pop();
                 else
                     return false;
-            else if(c == '}')
-                if(stack.empty())
+            else if (c == '}')
+                if (stack.empty())
                     return false;
-                else if(stack.peek() == '{')
+                else if (stack.peek() == '{')
                     stack.pop();
                 else
                     return false;
-            else if(c == ']')
-                if(stack.empty())
+            else if (c == ']')
+                if (stack.empty())
                     return false;
-                else if(stack.peek() == '[')
+                else if (stack.peek() == '[')
                     stack.pop();
                 else
                     return false;

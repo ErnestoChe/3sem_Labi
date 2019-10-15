@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<literature>
+    <author name="Пушкин А.С.">
+        <book name="Руслан и Людмила">
+            <pages>150</pages>
+        </book>
+        <book name="Сказка о рыбаке и рыбке">
+            <pages>25</pages>
+        </book>
+    </author>
+    <author name="Толстой Л.Н.">
+        <book name="Война и мир">
+            <pages>1000</pages>
+        </book>
+    </author>
+</literature>

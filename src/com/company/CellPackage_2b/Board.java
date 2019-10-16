@@ -2,7 +2,7 @@ package com.company.CellPackage_2b;
 
 import java.util.ArrayList;
 
-public class Board {
+public class Board{
     private final static int LENGTH_CONST = 20;
     public boolean[][] cells;
 

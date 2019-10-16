@@ -13,18 +13,24 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         //getXMLOne();
         ArrayList<Athlete> list = AthletesList();
 
-        for (Athlete a: list) {
-
+//        output3a(list);
+//        output3b(list);
+//        output3c(list);
+        Athlete at1 = ath();
+        System.out.println(at1.toString());
+        if(at1.getComps().size() != 0){
+            for (Competition c : at1.getComps()) {
+                System.out.println(c.getYear() + " " + c.getPlace() + " " + c.getAward() + " " + c.getResult());
+            }
         }
-        //output3a(list);
-        //output3b(list);
-        output3c(list);
+        list.add(at1);
     }
     //первое задание
     public static void getXMLOne() throws ParserConfigurationException, IOException, SAXException
@@ -155,5 +161,43 @@ public class Main {
         }
     }
 
-
+    public static Athlete ath()
+    {
+        Athlete athlete = new Athlete();
+        Scanner scn = new Scanner(System.in);
+        System.out.println("enter name");
+        athlete.setName(scn.nextLine());
+        System.out.println("enter birth date in yyyy-mm-dd format");
+        //TODO check format
+        athlete.setDate_of_birth(scn.nextLine());
+        System.out.println("enter gender m/f");
+        athlete.setSex(scn.nextLine());
+        System.out.println("This athlete partpicated in any compettions? (Y/N)");
+        List<Competition> list_comp = new ArrayList<>();
+        String line = scn.nextLine();
+        while(line.equals("Y")){
+            Competition new_comp = new Competition();
+            System.out.println("enter year of competition");
+            new_comp.setYear(Integer.parseInt(scn.nextLine()));
+            System.out.println("enter place of comp");
+            new_comp.setPlace(scn.nextLine());
+            System.out.println("enter award on comp (gold/silver/bronze)");
+            new_comp.setAward(scn.nextLine());
+            String aw = new_comp.getAward();
+            switch (aw){
+                case "gold":
+                    new_comp.setResult(200);
+                    break;
+                case "silver":
+                    new_comp.setResult(180);
+                case "bronze":
+                    new_comp.setResult(160);
+            }
+            list_comp.add(new_comp);
+            System.out.println("Is there any more compititions? (Y/N)");
+            line = scn.nextLine();
+        }
+        athlete.setComps(list_comp);
+        return athlete;
+    }
 }

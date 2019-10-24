@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<team>
+    <sportsmen name="vasya" numberOfEvent="2" sumResoult="380"/>
+    <sportsmen name="kolya" numberOfEvent="1" sumResoult="160"/>
+    <sportsmen name="shura" numberOfEvent="2" sumResoult="400"/>
+    <sportsmen name="katya" numberOfEvent="2" sumResoult="360"/>
+    <sportsmen name="petya" numberOfEvent="2" sumResoult="380"/>
+    <sportsmen name="oleg" numberOfEvent="1" sumResoult="160"/>
+</team>

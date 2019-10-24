@@ -1,14 +1,16 @@
 package com.company.Laba3;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, TransformerException {
         //getXMLOne();
         ArrayList<Athlete> list = AthletesList();
 
@@ -31,6 +33,8 @@ public class Main {
             }
         }
         list.add(at1);
+
+        newXML(list);
     }
     //первое задание
     public static void getXMLOne() throws ParserConfigurationException, IOException, SAXException
@@ -199,5 +203,34 @@ public class Main {
         }
         athlete.setComps(list_comp);
         return athlete;
+    }
+
+    public static void newXML(ArrayList<Athlete> ath_list) throws TransformerException, ParserConfigurationException {
+        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        Element team = document.createElement("team");
+        document.appendChild(team);
+        for (Athlete a : ath_list) {
+            Element athlete = document.createElement("sportsmen");
+            Attr name = document.createAttribute("name");
+            name.setTextContent(a.getName());
+            Attr numberOfEvent = document.createAttribute("numberOfEvent");
+            numberOfEvent.setTextContent(String.valueOf(a.getComps().size()));
+            List<Competition> eventList = a.getComps();
+            int sumResoultInt = 0;
+            for (Competition event : eventList) {
+                sumResoultInt += event.getResult();
+            }
+            Attr sumResoult = document.createAttribute("sumResoult");
+            sumResoult.setTextContent(String.valueOf(sumResoultInt));
+            athlete.setAttributeNode(name);
+            athlete.setAttributeNode(numberOfEvent);
+            athlete.setAttributeNode(sumResoult);
+            team.appendChild(athlete);
+        }
+
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        DOMSource source = new DOMSource(document);
+        StreamResult result = new StreamResult(new File("newFile.xml"));
+        transformer.transform(source, result);
     }
 }

@@ -280,7 +280,19 @@ public class Main {
         System.out.println(list);
         return !list.isEmpty();
     }
-
+    //13
+    public static boolean skobochki(String s) {
+        int i = 0, j = 0;
+        Pattern p1 = Pattern.compile("\\(");
+        Pattern p2 = Pattern.compile("\\)");
+        Matcher matcher = p1.matcher(s);
+        while (matcher.find()) i++;
+        matcher = p2.matcher(s);
+        while (matcher.find()) j++;
+        System.out.println(s);
+        System.out.println(i == j);
+        return i == j;
+    }
 }
 
 

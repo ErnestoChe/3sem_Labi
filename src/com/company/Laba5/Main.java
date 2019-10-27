@@ -54,9 +54,6 @@ public class Main {
                     if (reader.getLocalName().equalsIgnoreCase("book")) {
                         tmp_author.addBook(tmp_book);
                     }
-                    if (reader.getLocalName().equalsIgnoreCase("id")) {
-
-                    }
                     break;
                 }
             }

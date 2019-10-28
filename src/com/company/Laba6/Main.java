@@ -12,6 +12,8 @@ public class Main {
         //log(conn);
         //addZapis(conn);
         //addPreZapis(conn);
+        //upd(conn);
+        delete(conn);
     }
     public static void addZapis(Connection conn) throws SQLException {
         Scanner scn = new Scanner(System.in);
@@ -74,8 +76,19 @@ public class Main {
 
     }
 
-    public static void upd(Connection conn){
+    public static void upd(Connection conn) throws SQLException {
+        String sqlQuery =
+                "UPDATE Laba6 SET company_name = 'Институт ядерных технологий' WHERE company_name = 'НИИ Атоммашстрой';" +
+                "UPDATE Laba6 SET phone_number = '511-11-11' WHERE phone_number = '288-99-22';";
+        PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+        pstmt.executeUpdate();
+    }
 
+    public static void delete(Connection conn) throws SQLException {
+        String sqlQuery =
+                "DELETE FROM Laba6 WHERE user_id = 5;";
+        PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+        pstmt.executeUpdate();
     }
 }
 

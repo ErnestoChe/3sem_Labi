@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        String password = "dlxkj1gwf18y";
+        String password = "**********";
         String user = "postgres";
         String url = "jdbc:postgresql://localhost:5432/Laba6?user=" + user + "&password=" + password;
         Connection conn = DriverManager.getConnection(url);

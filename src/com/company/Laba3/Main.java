@@ -172,7 +172,6 @@ public class Main {
         System.out.println("enter name");
         athlete.setName(scn.nextLine());
         System.out.println("enter birth date in yyyy-mm-dd format");
-        //TODO check format
         athlete.setDate_of_birth(scn.nextLine());
         System.out.println("enter gender m/f");
         athlete.setSex(scn.nextLine());

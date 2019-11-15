@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Laba8.ControllerTask1">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="380.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+           <Tab text = "фрКв">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Canvas fx:id = "fractalCanvas" height="350.0" layoutX="2.0" layoutY="2.0" width="450.0" />
+                       <Button fx:id="drawSquareFr" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать"/>
+                    </children>
+                 </AnchorPane>
+              </content>
+           </Tab>
+           <Tab text = "фрДерево">
+              <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                       <Canvas fx:id = "fractalTreeCanvas" height="350.0" layoutX="2.0" layoutY="2.0" width="450.0" />
+                       <Button fx:id="drawFractalTree" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать"/>
+                    </children>
+                 </AnchorPane>
+              </content>
+           </Tab>
+          <Tab fx:id="tabLine" text="Линия">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Canvas fx:id = "lineCanvas" height="340.0" layoutX="2.0" layoutY="2.0" width="470.0" />
+                        <Label layoutX="482.0" layoutY="14.0" text="Начало" />
+                        <Label layoutX="482.0" layoutY="46.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="75.0" text="У" />
+                        <Label layoutX="482.0" layoutY="103.0" text="Конец" />
+                        <Label layoutX="482.0" layoutY="141.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="166.0" text="У" />
+                        <TextField fx:id="lineStartX" layoutX="492.0" layoutY="42.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="lineStartY" layoutX="492.0" layoutY="71.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id="lineEndX" layoutX="493.0" layoutY="137.0" prefHeight="26.0" prefWidth="70.0" />
+                        <TextField fx:id="lineEndY" layoutX="493.0" layoutY="162.0" prefHeight="26.0" prefWidth="70.0" />
+                        <Button fx:id="drawLine" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabRectangle" text="Прямоугольник">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Canvas fx:id = "rectCanvas" height="340.0" layoutX="2.0" layoutY="2.0" width="470.0" />
+                        <Label layoutX="482.0" layoutY="14.0" text="Левый верхний" />
+                        <Label layoutX="482.0" layoutY="46.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="75.0" text="У" />
+                        <Label layoutX="482.0" layoutY="103.0" text="Правый нижний" />
+                        <Label layoutX="482.0" layoutY="141.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="166.0" text="У" />
+                        <TextField fx:id= "rectFirstAngleX" layoutX="492.0" layoutY="42.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id= "rectFirstAngleY" layoutX="492.0" layoutY="71.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id= "rectSecondAngleX" layoutX="493.0" layoutY="137.0" prefHeight="26.0" prefWidth="70.0" />
+                        <TextField fx:id= "rectSecondAngleY" layoutX="493.0" layoutY="162.0" prefHeight="26.0" prefWidth="70.0" />
+                        <Button fx:id = "drawRect" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать" />
+                        <RadioButton fx:id = "fillRect" layoutX="481.0" layoutY="201.0" mnemonicParsing="false" text="Закрасить" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabCircle" text="Эллипс">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Canvas fx:id = "circleCanvas" height="340.0" layoutX="2.0" layoutY="2.0" width="470.0" />
+                        <Label layoutX="482.0" layoutY="14.0" text="Левый верхний" />
+                        <Label layoutX="482.0" layoutY="46.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="75.0" text="У" />
+                        <Label layoutX="482.0" layoutY="103.0" text="Правый нижний" />
+                        <Label layoutX="482.0" layoutY="141.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="166.0" text="У" />
+                        <TextField fx:id = "circleFirstAngleX" layoutX="492.0" layoutY="42.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id = "circleFirstAngleY" layoutX="492.0" layoutY="71.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id = "circleSecondAngleX" layoutX="493.0" layoutY="137.0" prefHeight="26.0" prefWidth="70.0" />
+                        <TextField fx:id = "circleSecondAngleY" layoutX="493.0" layoutY="162.0" prefHeight="26.0" prefWidth="70.0" />
+                        <Button fx:id = "drawCircle" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать" />
+                        <RadioButton fx:id = "fillCircle" layoutX="481.0" layoutY="201.0" mnemonicParsing="false" text="Закрасить" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabTriangle" text="Треугольник">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Canvas fx:id = "triangleCanvas" height="340.0" layoutX="2.0" layoutY="2.0" width="470.0" />
+                        <Label layoutX="482.0" layoutY="14.0" text="Первая вершина" />
+                        <Label layoutX="482.0" layoutY="37.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="66.0" text="У" />
+                        <Label layoutX="482.0" layoutY="88.0" text="Вторая вершина" />
+                        <Label layoutX="482.0" layoutY="110.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="140.0" text="У" />
+                        <TextField fx:id = "firstX" layoutX="490.0" layoutY="33.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id = "firstY" layoutX="490.0" layoutY="62.0" prefHeight="26.0" prefWidth="75.0" />
+                        <TextField fx:id = "secondX" layoutX="493.0" layoutY="106.0" prefHeight="26.0" prefWidth="70.0" />
+                        <TextField fx:id = "secondY" layoutX="493.0" layoutY="136.0" prefHeight="26.0" prefWidth="70.0" />
+                        <Button fx:id = "drawTriangle" layoutX="483.0" layoutY="299.0" mnemonicParsing="false" text="Рисовать" />
+                        <RadioButton fx:id = "fillTriangle" layoutX="478.0" layoutY="254.0" mnemonicParsing="false" text="Закрасить" />
+                        <Label layoutX="483.0" layoutY="163.0" text="Третья вершина" />
+                        <Label layoutX="482.0" layoutY="189.0" text="Х" />
+                        <Label layoutX="482.0" layoutY="222.0" text="У" />
+                        <TextField fx:id = "thirdX" layoutX="492.0" layoutY="185.0" prefHeight="26.0" prefWidth="71.0" />
+                        <TextField fx:id = "thirdY" layoutX="491.0" layoutY="218.0" prefHeight="26.0" prefWidth="72.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="263.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Laba7.zadanie3.ControllerTask3">
+   <children>
+      <ComboBox fx:id="ComboBoxFirst" layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="Кто" />
+      <ComboBox fx:id="ComboBoxSecond" layoutX="164.0" layoutY="14.0" prefWidth="150.0" promptText="Как ушел" />
+      <ComboBox fx:id="ComboBoxThird" layoutX="314.0" layoutY="14.0" prefWidth="150.0" promptText="Куда" />
+      <TextArea fx:id="TextFieldMain" layoutX="14.0" layoutY="50.0" prefHeight="208.0" prefWidth="453.0" promptText="text" />
+      <Button fx:id="ButtonAdd" layoutX="468.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Добавить фразу" />
+      <Button fx:id="ButtonClose" layoutX="468.0" layoutY="85.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Закрыть" />
+   </children>
+</AnchorPane>
